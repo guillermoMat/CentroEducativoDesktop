@@ -45,20 +45,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 68);
+            this.label1.Location = new System.Drawing.Point(72, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nro Cuota:";
+            this.label1.Text = "Cuota/Mes:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 144);
+            this.label2.Location = new System.Drawing.Point(58, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Alumno ID:";
+            this.label2.Text = "Legajo Alumno:";
             // 
             // label3
             // 

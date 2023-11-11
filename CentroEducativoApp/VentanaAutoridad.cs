@@ -82,5 +82,21 @@ namespace CentroEducativoApp
             }
 
         }
+
+        private void btnInscribirAlumno_Click(object sender, EventArgs e)
+        {
+            using (InscripcionAlumno obj=new InscripcionAlumno())
+            {
+                obj.ShowDialog();
+            }
+        }
+
+        private void btnListadoAlumXDocente_Click(object sender, EventArgs e)
+        {
+            using (ListadoAlumnosXDocente obj=new ListadoAlumnosXDocente())
+            {
+                obj.ShowDialog();
+            }
+        }
     }
 }

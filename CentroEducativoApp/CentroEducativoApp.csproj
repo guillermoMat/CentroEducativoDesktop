@@ -126,11 +126,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InscripcionAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscripcionAlumno.Designer.cs">
+      <DependentUpon>InscripcionAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListadoAlumnosXCurso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListadoAlumnosXCurso.Designer.cs">
       <DependentUpon>ListadoAlumnosXCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoAlumnosXDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoAlumnosXDocente.Designer.cs">
+      <DependentUpon>ListadoAlumnosXDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="ListadoDeudores.cs">
       <SubType>Form</SubType>
@@ -173,8 +185,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InscripcionAlumno.resx">
+      <DependentUpon>InscripcionAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListadoAlumnosXCurso.resx">
       <DependentUpon>ListadoAlumnosXCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoAlumnosXDocente.resx">
+      <DependentUpon>ListadoAlumnosXDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoDeudores.resx">
       <DependentUpon>ListadoDeudores.cs</DependentUpon>

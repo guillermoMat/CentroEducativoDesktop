@@ -19,22 +19,65 @@ namespace CentroEducativoApp
         public RegistroCurso()
         {
             InitializeComponent();
-            cbDivision.Items.Add("A");
-            cbDivision.Items.Add("B");
 
-            cbCurso.Items.Add(1.1);
-            cbCurso.Items.Add(1.2);
-            cbCurso.Items.Add(1.3);
-            cbCurso.Items.Add(1.4);
-            cbCurso.Items.Add(2.1);
-            cbCurso.Items.Add(2.2);
-            cbCurso.Items.Add(2.3);
+            CargarComboBoxAula();
+            CargarComboBoxProfesor();
+
 
         }
 
         private void RegistroCurso_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CargarComboBoxAula()
+        {
+            string query = "SELECT id,nombreAula FROM `aula`";
+
+            using (MySqlCommand cmd = new MySqlCommand(query))
+            {
+                cmd.Connection = Conexion();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    int id = Int32.Parse(reader.GetString("id"));
+                    string nombre = reader.GetString("nombreAula");
+                    
+                    // Agregar los datos al ComboBox
+                    cbAula.Items.Add(id + " - Aula: " + nombre);
+                }
+
+                //Conexion().Close();
+            }
+            Conexion().Close();
+        }
+
+        private void CargarComboBoxProfesor()
+        {
+            string query = "SELECT id,nombre,apellido FROM `docente`";
+
+            using (MySqlCommand cmd = new MySqlCommand(query))
+            {
+                cmd.Connection = Conexion();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    int id = Int32.Parse(reader.GetString("id"));
+                    string nombre = reader.GetString("nombre");
+                    string apellido = reader.GetString("Apellido");
+
+                    // Agregar los datos al ComboBox
+                    cbProfesor.Items.Add(id + " - Docente: " + nombre+" "+apellido);
+                }
+
+                //Conexion().Close();
+            }
+            Conexion().Close();
         }
 
         //verificacion de que el bombobox no este vacio
@@ -77,51 +120,52 @@ namespace CentroEducativoApp
         }
 
         //verificacion de que el campo sea numerico
-        private void validarCampoNumerico(System.Windows.Forms.TextBox tb)
-        {
-            int numero;
+        //private void validarCampoNumerico(System.Windows.Forms.TextBox tb)
+        //{
+        //    int numero;
 
-            if (int.TryParse(tb.Text, out numero))
-            {
-                // El valor en el TextBox es un número entero.
-                // Puedes utilizar la variable "numero" para trabajar con el valor numérico.
-                    errorProvider1.SetError(tb, "");
-            }
-            else
-            {
-                errorProvider1.SetError(tb, "Este campo debe ser numerico");
-            }
-        }
+        //    if (int.TryParse(tb.Text, out numero))
+        //    {
+        //        // El valor en el TextBox es un número entero.
+        //        // Puedes utilizar la variable "numero" para trabajar con el valor numérico.
+        //            errorProvider1.SetError(tb, "");
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(tb, "Este campo debe ser numerico");
+        //    }
+        //}
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarCamposCompletos(this))
             {
-                if (cbCurso.SelectedIndex == -1)
+                if (cbAula.SelectedIndex == -1)
                 {
-                    errorProvider1.SetError(cbCurso, "Seleccione alguna opción");
+                    errorProvider1.SetError(cbAula, "Seleccione alguna opción");
 
-                }else if (cbDivision.SelectedIndex == -1)
+                }else if (cbProfesor.SelectedIndex == -1)
                 {
-                    errorProvider1.SetError(cbDivision, "Seleccione alguna opción");
+                    errorProvider1.SetError(cbProfesor, "Seleccione alguna opción");
                 }
                 else
                 {
-                    errorProvider1.SetError(cbCurso, "");
-                    errorProvider1.SetError(cbDivision, "");
+                    errorProvider1.SetError(cbAula, "");
+                    errorProvider1.SetError(cbProfesor, "");
 
 
-                    string curso, año;
-                    char division;
-                    int maxCant;
+                    string nombreMateria;
+                    int aulaID, profesorID;
 
 
-                    curso = cbCurso.SelectedItem.ToString();
-                    division = Convert.ToChar(cbDivision.SelectedItem.ToString());
-                    año = tbAño.Text;
-                    maxCant = Int32.Parse(tbCantAlumn.Text);
+                    string cbSeleccionadoAula = cbAula.SelectedItem.ToString();
+                    string cbSeleccionadoProfesor = cbProfesor.SelectedItem.ToString();
 
+                    
 
+                    aulaID = Int32.Parse(cbSeleccionadoAula[0].ToString());
+                    profesorID = Int32.Parse(cbSeleccionadoProfesor[0].ToString());
+                    nombreMateria = tbMateria.Text;
 
 
                     string bd = "login";
@@ -134,7 +178,7 @@ namespace CentroEducativoApp
                     string connectionString = "Server=" + servidor + ";Database=" + bd + ";User ID=" + usuarioConexion + ";Password=" + password + ";";
 
 
-                    string query = "INSERT INTO `curso` (`id`, `nombre`, `division`, `año_academico`, `maxCantAlumn`) VALUES (NULL, '" + curso + "', '" + division + "','" + año + "/01/01  ','" + maxCant + "');";
+                    string query = "INSERT INTO `curso` (`id`, `nombreCurso`, `profesor_id`, `aula_id`) VALUES (NULL, '" + nombreMateria + "', '" + profesorID + "','" +  aulaID + "');";
 
                     try
                     {
@@ -172,24 +216,56 @@ namespace CentroEducativoApp
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            validarCampoNumerico(tbAño);
-        }
-
-        private void tbCantAlumn_TextChanged(object sender, EventArgs e)
-        {
-            validarCampoNumerico(tbCantAlumn);
-        }
+       
 
         private void cbCurso_TextChanged(object sender, EventArgs e)
         {
-            validarComboBox(cbCurso);
+            validarComboBox(cbAula);
         }
 
         private void cbDivision_TextChanged(object sender, EventArgs e)
         {
-            validarComboBox(cbDivision);
+            validarComboBox(cbProfesor);
+        }
+
+        private MySqlConnection Conexion()
+        {
+            string bd = "login";
+            string servidor = "localhost";
+            string usuarioConexion = "root";
+            string password = "";
+
+            string connectionString = "Server=" + servidor + ";Database=" + bd + ";User ID=" + usuarioConexion + ";Password=" + password + ";";
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            connection.Open();
+
+            return connection;
+        }
+        private void controlTodoTexto(System.Windows.Forms.TextBox tb, string texto)
+        {
+            if (texto.Trim() != string.Empty && texto.All(Char.IsLetter))
+            {
+                //btnRegistrar.Enabled = true;
+                errorProvider1.SetError(tb, "");
+            }
+            else
+            {
+                if (!(texto.All(Char.IsLetter)))
+                {
+                    errorProvider1.SetError(tb, "Solo debe contener letras");
+                }
+                else
+                {
+                    errorProvider1.SetError(tb, "Solo debe contener letras");
+                }
+            }
+        }
+
+        private void tbMateria_TextChanged(object sender, EventArgs e)
+        {
+            controlTodoTexto(tbMateria,tbMateria.Text);
         }
     }
 }

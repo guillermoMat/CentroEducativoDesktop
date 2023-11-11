@@ -31,81 +31,45 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbAño = new System.Windows.Forms.TextBox();
-            this.tbCantAlumn = new System.Windows.Forms.TextBox();
-            this.cbDivision = new System.Windows.Forms.ComboBox();
+            this.cbProfesor = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cbCurso = new System.Windows.Forms.ComboBox();
+            this.cbAula = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbMateria = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 59);
+            this.label1.Location = new System.Drawing.Point(80, 159);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Numeración del Curso";
+            this.label1.Text = "Nro Aula";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 130);
+            this.label2.Location = new System.Drawing.Point(80, 233);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "División";
+            this.label2.Text = "Profesor";
             // 
-            // label3
+            // cbProfesor
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Año Académico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Máxima cantidad de alumnos";
-            // 
-            // tbAño
-            // 
-            this.tbAño.Location = new System.Drawing.Point(226, 187);
-            this.tbAño.Name = "tbAño";
-            this.tbAño.Size = new System.Drawing.Size(121, 20);
-            this.tbAño.TabIndex = 6;
-            this.tbAño.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // tbCantAlumn
-            // 
-            this.tbCantAlumn.Location = new System.Drawing.Point(226, 257);
-            this.tbCantAlumn.Name = "tbCantAlumn";
-            this.tbCantAlumn.Size = new System.Drawing.Size(121, 20);
-            this.tbCantAlumn.TabIndex = 7;
-            this.tbCantAlumn.TextChanged += new System.EventHandler(this.tbCantAlumn_TextChanged);
-            // 
-            // cbDivision
-            // 
-            this.cbDivision.FormattingEnabled = true;
-            this.cbDivision.Location = new System.Drawing.Point(226, 127);
-            this.cbDivision.Name = "cbDivision";
-            this.cbDivision.Size = new System.Drawing.Size(121, 21);
-            this.cbDivision.TabIndex = 8;
-            this.cbDivision.TextChanged += new System.EventHandler(this.cbDivision_TextChanged);
+            this.cbProfesor.FormattingEnabled = true;
+            this.cbProfesor.Location = new System.Drawing.Point(188, 230);
+            this.cbProfesor.Name = "cbProfesor";
+            this.cbProfesor.Size = new System.Drawing.Size(175, 21);
+            this.cbProfesor.TabIndex = 8;
+            this.cbProfesor.TextChanged += new System.EventHandler(this.cbDivision_TextChanged);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(153, 355);
+            this.btnGuardar.Location = new System.Drawing.Point(152, 336);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(86, 30);
             this.btnGuardar.TabIndex = 9;
@@ -113,31 +77,46 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // cbCurso
+            // cbAula
             // 
-            this.cbCurso.FormattingEnabled = true;
-            this.cbCurso.Location = new System.Drawing.Point(226, 56);
-            this.cbCurso.Name = "cbCurso";
-            this.cbCurso.Size = new System.Drawing.Size(121, 21);
-            this.cbCurso.TabIndex = 10;
-            this.cbCurso.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
+            this.cbAula.FormattingEnabled = true;
+            this.cbAula.Location = new System.Drawing.Point(188, 156);
+            this.cbAula.Name = "cbAula";
+            this.cbAula.Size = new System.Drawing.Size(121, 21);
+            this.cbAula.TabIndex = 10;
+            this.cbAula.TextChanged += new System.EventHandler(this.cbCurso_TextChanged);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(82, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Materia";
+            // 
+            // tbMateria
+            // 
+            this.tbMateria.Location = new System.Drawing.Point(188, 82);
+            this.tbMateria.Name = "tbMateria";
+            this.tbMateria.Size = new System.Drawing.Size(121, 20);
+            this.tbMateria.TabIndex = 12;
+            this.tbMateria.TextChanged += new System.EventHandler(this.tbMateria_TextChanged);
             // 
             // RegistroCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 434);
-            this.Controls.Add(this.cbCurso);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.cbDivision);
-            this.Controls.Add(this.tbCantAlumn);
-            this.Controls.Add(this.tbAño);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbMateria);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbAula);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.cbProfesor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RegistroCurso";
@@ -153,13 +132,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbAño;
-        private System.Windows.Forms.TextBox tbCantAlumn;
-        private System.Windows.Forms.ComboBox cbDivision;
+        private System.Windows.Forms.ComboBox cbProfesor;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.ComboBox cbCurso;
+        private System.Windows.Forms.ComboBox cbAula;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox tbMateria;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -48,3 +48,5 @@ C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\Cent
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.ListadoAlumnosXCurso.resources
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.ListadoDeudores.resources
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.VentanaPagarCuota.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.InscripcionAlumno.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.ListadoAlumnosXDocente.resources

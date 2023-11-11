@@ -35,6 +35,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelValor = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboxListadoCurso = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -106,11 +109,41 @@
             this.panel1.Size = new System.Drawing.Size(144, 52);
             this.panel1.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(83, 399);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Buscar por Curso:";
+            // 
+            // cboxListadoCurso
+            // 
+            this.cboxListadoCurso.FormattingEnabled = true;
+            this.cboxListadoCurso.Location = new System.Drawing.Point(195, 396);
+            this.cboxListadoCurso.Name = "cboxListadoCurso";
+            this.cboxListadoCurso.Size = new System.Drawing.Size(72, 21);
+            this.cboxListadoCurso.TabIndex = 8;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(298, 396);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 9;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // ListadoAlumnosXCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 665);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cboxListadoCurso);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
@@ -137,5 +170,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelValor;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cboxListadoCurso;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

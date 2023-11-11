@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,14 +36,59 @@ namespace CentroEducativoApp
 
         }
 
+        private int obtenerIdEstudiante()
+        {
+            string bd = "login";
+            string servidor = "localhost";
+            string usuarioConexion = "root";
+            string password = "";
+
+            //yyyy/MM/dd
+
+            string connectionString = "Server=" + servidor + ";Database=" + bd + ";User ID=" + usuarioConexion + ";Password=" + password + ";";
+
+            int final = 0;
+            string legajoEstudiante = textBox1.Text;
+            
+
+            // Construye la consulta SQL
+            string consulta = "SELECT id FROM Estudiante WHERE legajo =@Legajo";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
+                {
+                    // Añade parámetro para evitar SQL Injection
+                    comando.Parameters.AddWithValue("@Legajo", legajoEstudiante);
+
+                    try
+                    {
+                        conexion.Open();
+
+                        // Ejecuta la consulta y obtén el resultado
+                          object resultado = comando.ExecuteScalar();
+                        final = Convert.ToInt32(resultado);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error2: {ex.Message}");
+                    }
+                }
+            }
+
+            return final;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (ValidarCamposCompletos(this))
             {
                 int mes = mesSeleccionado();
-                int idAlumno = Int32.Parse(textBox1.Text);
+                int idAlumno = obtenerIdEstudiante();
                 DateTime fecha = dateTimePicker1.Value;
                 double monto = double.Parse(textBox2.Text);
+
 
                 string bd = "login";
                 string servidor = "localhost";
@@ -54,7 +100,7 @@ namespace CentroEducativoApp
                 string connectionString = "Server=" + servidor + ";Database=" + bd + ";User ID=" + usuarioConexion + ";Password=" + password + ";";
 
 
-                string query = "INSERT INTO `pagos` (`id`, `cuota_id`, `alumno_id`, `fechaPago`, `montoPagado`) VALUES (NULL, '" + mes + "', '" + idAlumno + "', '" + fecha + "', '" + monto + "');";
+                string query = "INSERT INTO `pagos` (`id`, `cuota_id`, `alumno_id`, `fechaPago`, `montoPagado`) VALUES (NULL, '" + mes + "', '" + idAlumno + "', '" + fecha.ToString("yyyy/MM/dd") + "', '" + monto + "');";
 
                 try
                 {
@@ -190,6 +236,11 @@ namespace CentroEducativoApp
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             validarCampoNumerico(textBox1);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

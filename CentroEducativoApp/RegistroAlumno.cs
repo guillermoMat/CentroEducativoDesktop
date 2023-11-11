@@ -18,7 +18,7 @@ namespace CentroEducativoApp
         public RegistroAlumno()
         {
             InitializeComponent();
-            CargarComboBoxConDatos();
+           // CargarComboBoxConDatos();
         }
 
         private void RegistroAlumno_Load(object sender, EventArgs e)
@@ -41,40 +41,41 @@ namespace CentroEducativoApp
             return connection;
         }
 
-        private void CargarComboBoxConDatos()
-        {
-            string query = "SELECT id,nombre FROM `curso`";
+        //private void CargarComboBoxConDatos()
+        //{
+        //    string query = "SELECT id,nombre,division FROM `curso`";
 
-            using (MySqlCommand cmd = new MySqlCommand(query))
-            {
-                cmd.Connection = Conexion();
-                MySqlDataReader reader = cmd.ExecuteReader();
+        //    using (MySqlCommand cmd = new MySqlCommand(query))
+        //    {
+        //        cmd.Connection = Conexion();
+        //        MySqlDataReader reader = cmd.ExecuteReader();
                 
-                    while (reader.Read())
-                    {
-                    int id = Int32.Parse(reader.GetString("id"));
-                        string nombre = reader.GetString("nombre");
-                        // Agregar los datos al ComboBox
-                        comboBox1.Items.Add(id +" - Curso: "+nombre);
-                    }
+        //            while (reader.Read()){
+                    
+        //            int id = Int32.Parse(reader.GetString("id"));
+        //            string nombre = reader.GetString("nombre");
+        //            string division = reader.GetString("division");
+        //            // Agregar los datos al ComboBox
+        //            comboBox1.Items.Add(id+" - Curso: "+nombre+" - "+division);
+        //            }
                 
-                //Conexion().Close();
-            }
-            Conexion().Close();
-        }
+        //        //Conexion().Close();
+        //    }
+        //    Conexion().Close();
+        //}
 
         //verificacion de que el bombobox no este vacio
-        private void validarComboBox(System.Windows.Forms.ComboBox cb)
-        {
-            if (cb.SelectedIndex == -1)
-            {
-                errorProvider1.SetError(cb, "Seleccione alguna opción");
-            }
-            else
-            {
-                errorProvider1.SetError(cb, "");
-            }
-        }
+        //private void validarComboBox(System.Windows.Forms.ComboBox cb)
+        //{
+        //    if (cb.SelectedIndex == -1)
+        //    {
+        //        errorProvider1.SetError(cb, "Seleccione alguna opción");
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(cb, "");
+        //    }
+        //}
 
         //validar que todos los campos tengan texto, no te deja procesar la transaccion
         private bool ValidarCamposCompletos(Control control)
@@ -155,8 +156,7 @@ namespace CentroEducativoApp
             {
                 string nombre, apellido, usuario, contraseña, correo;
                 string legajo;
-                string cbSeleccionado = comboBox1.SelectedItem.ToString();
-                int idCurso = Int32.Parse(cbSeleccionado[0].ToString());
+                
 
                 nombre = tbNombre.Text;
                 apellido = tbApellido.Text;
@@ -174,8 +174,8 @@ namespace CentroEducativoApp
 
                 string connectionString = "Server=" + servidor + ";Database=" + bd + ";User ID=" + usuarioConexion + ";Password=" + password + ";";
 
-                string consulta = "INSERT INTO `estudiante` (`id`, `nombre`, `apellido`, `fechaNacimiento`, `legajo`, `correo`, `usuario`, `contraseña`, `id_curso`) VALUES (NULL, '" + @nombre + "', '" + apellido + "', '" + fecha.ToString("yyyy/MM/dd") + 
-                    "', '"+legajo+"', '"+correo+"', '"+usuario+"', '"+contraseña+"', '"+idCurso+"');";
+                string consulta = "INSERT INTO `estudiante` (`id`, `nombre`, `apellido`, `fechaNacimiento`, `legajo`, `correo`, `usuario`, `contraseña`) VALUES (NULL, '" + @nombre + "', '" + apellido + "', '" + fecha.ToString("yyyy/MM/dd") + 
+                    "', '"+legajo+"', '"+correo+"', '"+usuario+"', '"+contraseña+"');";
 
                 try
                 {
@@ -238,9 +238,6 @@ namespace CentroEducativoApp
             }
         }
 
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-            validarComboBox(comboBox1);
-        }
+       
     }
 }

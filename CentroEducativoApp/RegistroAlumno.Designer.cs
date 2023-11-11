@@ -36,7 +36,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.tbLegajo = new System.Windows.Forms.TextBox();
@@ -44,7 +43,6 @@
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.tbContraseña = new System.Windows.Forms.TextBox();
             this.tbCorreo = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -71,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 345);
+            this.label3.Location = new System.Drawing.Point(177, 345);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 2;
@@ -113,15 +111,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Contraseña:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(441, 345);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Curso:";
-            // 
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(174, 68);
@@ -148,7 +137,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(174, 343);
+            this.dateTimePicker1.Location = new System.Drawing.Point(298, 343);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -176,15 +165,6 @@
             this.tbCorreo.TabIndex = 2;
             this.tbCorreo.TextChanged += new System.EventHandler(this.tbCorreo_TextChanged);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(526, 342);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -205,7 +185,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 496);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbCorreo);
             this.Controls.Add(this.tbContraseña);
             this.Controls.Add(this.tbUsuario);
@@ -213,7 +192,6 @@
             this.Controls.Add(this.tbLegajo);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.tbNombre);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -239,7 +217,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.TextBox tbLegajo;
@@ -247,7 +224,6 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.TextBox tbContraseña;
         private System.Windows.Forms.TextBox tbCorreo;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnGuardar;
     }

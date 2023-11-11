@@ -21,58 +21,135 @@ namespace CentroEducativoApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool ValidarCamposCompletos(Control control)
         {
-            string servidor = "localhost";
-            string usuario = "root";
-            string passw = "";
-            string baseDatos = "login";
+            bool camposCompletos = true;
 
-            string cadenaConexion = "Server=" + servidor + ";Database=" + baseDatos + ";Uid=" + usuario + ";Pwd=" + passw + ";";
-
-
-            using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+            foreach (Control c in control.Controls)
             {
-                conexion.Open();
-
-                string consulta = "SELECT * FROM autoridad WHERE usuario = @usuario AND contraseña = @contrasena";
-
-                using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
+                if (c is System.Windows.Forms.TextBox)
                 {
-                    comando.Parameters.AddWithValue("@usuario", tbUsuario.Text);
-                    comando.Parameters.AddWithValue("@contrasena", tbContraseña.Text);
-
-                    using (MySqlDataReader lector = comando.ExecuteReader())
+                    if (string.IsNullOrWhiteSpace((c as System.Windows.Forms.TextBox).Text))
                     {
-                        if (lector.HasRows)
-                        {
-                            //MessageBox.Show("Inicio de sesión exitoso.");
-                            
-                            MessageBox.Show("Inicio de sesión exitoso.","Bienvenido",MessageBoxButtons.OK);
-
-                            //this.Hide();  --> dps no se puede detener el programa
-
-                            VentanaAutoridad nuevaVentana = new VentanaAutoridad();
-                            nuevaVentana.ShowDialog();
-                            
-
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Credenciales Incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        }
+                        camposCompletos = false;
+                        break; // Puedes detener la verificación en el primer campo vacío que encuentres
                     }
+                }
+                else if (c.HasChildren)
+                {
+                    // Si el control contiene otros controles, verifica esos controles recursivamente
+                    camposCompletos = ValidarCamposCompletos(c);
+                    if (!camposCompletos) break;
                 }
             }
 
+            return camposCompletos;
         }
 
-        
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidarCamposCompletos(this))
+            {
+
+                string servidor = "localhost";
+                string usuario = "root";
+                string passw = "";
+                string baseDatos = "login";
+
+                string cadenaConexion = "Server=" + servidor + ";Database=" + baseDatos + ";Uid=" + usuario + ";Pwd=" + passw + ";";
+
+
+                using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+                {
+                    conexion.Open();
+
+                    string texto = tbUsuario.Text;
+                    string consulta = "";
+
+                    if (texto.Contains("@"))
+                    {
+                        consulta = "SELECT * FROM autoridad WHERE correo = @correo AND contraseña = @contrasena";
+
+                        using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
+                        {
+                            comando.Parameters.AddWithValue("@correo", tbUsuario.Text);
+                            comando.Parameters.AddWithValue("@contrasena", tbContraseña.Text);
+
+                            using (MySqlDataReader lector = comando.ExecuteReader())
+                            {
+                                if (lector.HasRows)
+                                {
+                                    //MessageBox.Show("Inicio de sesión exitoso.");
+
+                                    MessageBox.Show("Inicio de sesión exitoso.", "Bienvenido", MessageBoxButtons.OK);
+
+                                    //this.Hide();  --> dps no se puede detener el programa
+
+                                    VentanaAutoridad nuevaVentana = new VentanaAutoridad();
+                                    nuevaVentana.ShowDialog();
 
 
 
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Credenciales Incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        consulta = "SELECT * FROM autoridad WHERE usuario = @usuario AND contraseña = @contrasena";
+
+                        using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
+                        {
+                            comando.Parameters.AddWithValue("@usuario", tbUsuario.Text);
+                            comando.Parameters.AddWithValue("@contrasena", tbContraseña.Text);
+
+                            using (MySqlDataReader lector = comando.ExecuteReader())
+                            {
+                                if (lector.HasRows)
+                                {
+                                    //MessageBox.Show("Inicio de sesión exitoso.");
+
+                                    MessageBox.Show("Inicio de sesión exitoso.", "Bienvenido", MessageBoxButtons.OK);
+
+                                    //this.Hide();  --> dps no se puede detener el programa
+
+                                    VentanaAutoridad nuevaVentana = new VentanaAutoridad();
+                                    nuevaVentana.ShowDialog();
+
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Credenciales Incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Falta rellenar datos", "Error en el programa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
