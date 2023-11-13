@@ -98,5 +98,15 @@ namespace CentroEducativoApp
                 obj.ShowDialog();
             }
         }
+
+        public void recibirDato(string dato1)
+        {
+            label1.Text = "Bienvenido \n" + dato1;
+        }
+
+        private void VentanaAutoridad_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

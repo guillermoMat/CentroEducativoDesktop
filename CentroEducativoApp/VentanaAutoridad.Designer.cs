@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPagarCuota = new System.Windows.Forms.Button();
             this.btnListadoAlumXDocente = new System.Windows.Forms.Button();
             this.btnInscribirAlumno = new System.Windows.Forms.Button();
             this.btnDeudores = new System.Windows.Forms.Button();
@@ -37,7 +38,7 @@
             this.btnRegistrarCurso = new System.Windows.Forms.Button();
             this.btnRegistarDocente = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnPagarCuota = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 435);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPagarCuota
+            // 
+            this.btnPagarCuota.Location = new System.Drawing.Point(0, 381);
+            this.btnPagarCuota.Name = "btnPagarCuota";
+            this.btnPagarCuota.Size = new System.Drawing.Size(200, 33);
+            this.btnPagarCuota.TabIndex = 4;
+            this.btnPagarCuota.Text = "Pagar Cuota";
+            this.btnPagarCuota.UseVisualStyleBackColor = true;
+            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
             // 
             // btnListadoAlumXDocente
             // 
@@ -113,7 +124,7 @@
             this.btnRegistrarCurso.Name = "btnRegistrarCurso";
             this.btnRegistrarCurso.Size = new System.Drawing.Size(200, 35);
             this.btnRegistrarCurso.TabIndex = 1;
-            this.btnRegistrarCurso.Text = "Registrar Curso";
+            this.btnRegistrarCurso.Text = "Registrar Materia";
             this.btnRegistrarCurso.UseVisualStyleBackColor = true;
             this.btnRegistrarCurso.Click += new System.EventHandler(this.btnRegistrarCurso_Click);
             // 
@@ -138,27 +149,32 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // btnPagarCuota
+            // label1
             // 
-            this.btnPagarCuota.Location = new System.Drawing.Point(0, 381);
-            this.btnPagarCuota.Name = "btnPagarCuota";
-            this.btnPagarCuota.Size = new System.Drawing.Size(200, 33);
-            this.btnPagarCuota.TabIndex = 4;
-            this.btnPagarCuota.Text = "Pagar Cuota";
-            this.btnPagarCuota.UseVisualStyleBackColor = true;
-            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(535, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
             // 
             // VentanaAutoridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VentanaAutoridad";
-            this.Text = "VentanaAutoridad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ventana Autoridad";
+            this.Load += new System.EventHandler(this.VentanaAutoridad_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -174,5 +190,6 @@
         private System.Windows.Forms.Button btnPagarCuota;
         private System.Windows.Forms.Button btnInscribirAlumno;
         private System.Windows.Forms.Button btnListadoAlumXDocente;
+        private System.Windows.Forms.Label label1;
     }
 }

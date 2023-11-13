@@ -21,6 +21,29 @@ namespace CentroEducativoApp
             InitializeComponent();
         }
 
+        private int validarTipoDeRol()
+        {
+            int autoridad = 0, padre = 0, alumno = 0, docente = 0;
+            if (rbAutoridad.Checked)
+            {
+                return autoridad = 1;
+            }else if (rbPadre.Checked)
+            {
+                return padre = 2;
+            }else if (rbAlumno.Checked)
+            {
+                return alumno = 3;
+            }else if (rbDocente.Checked)
+            {
+                return docente = 4;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+
         private bool ValidarCamposCompletos(Control control)
         {
             bool camposCompletos = true;
@@ -49,9 +72,24 @@ namespace CentroEducativoApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidarCamposCompletos(this))
+            string tabla = "";
+            if (validarTipoDeRol()==1)
             {
+                tabla = "autoridad";
+            }else if (validarTipoDeRol() == 2)
+            {
+                tabla = "padres";
+            }else if (validarTipoDeRol() == 3)
+            {
+                tabla = "estudiante";
+            }else if (validarTipoDeRol() == 4)
+            {
+                tabla = "docente";
+            }
 
+
+                if (ValidarCamposCompletos(this))
+            {
                 string servidor = "localhost";
                 string usuario = "root";
                 string passw = "";
@@ -69,7 +107,7 @@ namespace CentroEducativoApp
 
                     if (texto.Contains("@"))
                     {
-                        consulta = "SELECT * FROM autoridad WHERE correo = @correo AND contraseña = @contrasena";
+                        consulta = "SELECT * FROM "+tabla+" WHERE correo = @correo AND contraseña = @contrasena";
 
                         using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
                         {
@@ -80,14 +118,36 @@ namespace CentroEducativoApp
                             {
                                 if (lector.HasRows)
                                 {
-                                    //MessageBox.Show("Inicio de sesión exitoso.");
-
                                     MessageBox.Show("Inicio de sesión exitoso.", "Bienvenido", MessageBoxButtons.OK);
 
                                     //this.Hide();  --> dps no se puede detener el programa
+                                    if (tabla=="autoridad")
+                                    {
+                                        using (VentanaAutoridad nuevaVentana = new VentanaAutoridad())
+                                        {
+                                            nuevaVentana.ShowDialog();
+                                        }
+                                    }else if (tabla=="padres")
+                                    {
+                                        using (VentanaPadre_Madre obj=new VentanaPadre_Madre())
+                                        {
+                                            obj.ShowDialog();
+                                        }
+                                    }else if (tabla=="estudiante")
+                                    {
 
-                                    VentanaAutoridad nuevaVentana = new VentanaAutoridad();
-                                    nuevaVentana.ShowDialog();
+                                        using (VentanaAlumno obj=new VentanaAlumno())
+                                        {
+                                            obj.ShowDialog();
+                                        }
+                                    }else if (tabla=="docente")
+                                    {
+                                        using (Docente obj= new Docente())
+                                        {
+                                            obj.ShowDialog();
+                                        }
+                                    }
+                                    
 
 
 
@@ -102,7 +162,7 @@ namespace CentroEducativoApp
                     }
                     else
                     {
-                        consulta = "SELECT * FROM autoridad WHERE usuario = @usuario AND contraseña = @contrasena";
+                        consulta = "SELECT * FROM "+tabla+" WHERE usuario = @usuario AND contraseña = @contrasena";
 
                         using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
                         {
@@ -117,10 +177,48 @@ namespace CentroEducativoApp
 
                                     MessageBox.Show("Inicio de sesión exitoso.", "Bienvenido", MessageBoxButtons.OK);
 
-                                    //this.Hide();  --> dps no se puede detener el programa
+                                    if (tabla == "autoridad")
+                                    {
+                                        using (VentanaAutoridad nuevaVentana = new VentanaAutoridad())
+                                        {
+                                            string dato1 = tbUsuario.Text;
 
-                                    VentanaAutoridad nuevaVentana = new VentanaAutoridad();
-                                    nuevaVentana.ShowDialog();
+                                            nuevaVentana.recibirDato(dato1);
+                                            nuevaVentana.ShowDialog();
+                                        }
+                                    }
+                                    else if (tabla == "padres")
+                                    {
+                                        using (VentanaPadre_Madre obj = new VentanaPadre_Madre())
+                                        {
+                                            string dato1 = tbUsuario.Text;
+
+                                            obj.recibirDato(dato1);
+
+                                            obj.ShowDialog();
+                                        }
+                                    }
+                                    else if (tabla == "estudiante")
+                                    {
+
+                                        using (VentanaAlumno obj = new VentanaAlumno())
+                                        {
+                                            string dato1 = tbUsuario.Text;
+
+                                            obj.recibirDato(dato1);
+                                            obj.ShowDialog();
+                                        }
+                                    }
+                                    else if (tabla == "docente")
+                                    {
+                                        using (Docente obj = new Docente())
+                                        {
+                                            string dato1 = tbUsuario.Text;
+
+                                            obj.recibirDato(dato1);
+                                            obj.ShowDialog();
+                                        }
+                                    }
 
 
 

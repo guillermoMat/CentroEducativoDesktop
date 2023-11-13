@@ -12,7 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Guill\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -50,6 +51,18 @@
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8011376E9AD7F5954B3E668800E6474EA5E8850B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CentroEducativoApp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -118,19 +131,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargarNotaEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarNotaEstudiante.Designer.cs">
+      <DependentUpon>CargarNotaEstudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Autoridad.cs" />
     <Compile Include="DAO\UsuariosDao.cs" />
+    <Compile Include="Docente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Docente.Designer.cs">
+      <DependentUpon>Docente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HorariosAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HorariosAlumno.Designer.cs">
+      <DependentUpon>HorariosAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="InscripcionAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InscripcionAlumno.Designer.cs">
       <DependentUpon>InscripcionAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaDeudasHijos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaDeudasHijos.Designer.cs">
+      <DependentUpon>ListaDeudasHijos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HorarioTrabajoDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HorarioTrabajoDocente.Designer.cs">
+      <DependentUpon>HorarioTrabajoDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="ListadoAlumnosXCurso.cs">
       <SubType>Form</SubType>
@@ -149,6 +192,12 @@
     </Compile>
     <Compile Include="ListadoDeudores.Designer.cs">
       <DependentUpon>ListadoDeudores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotasHijos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotasHijos.Designer.cs">
+      <DependentUpon>NotasHijos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,11 +219,23 @@
     <Compile Include="RegistroDocente.Designer.cs">
       <DependentUpon>RegistroDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentanaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaAlumno.Designer.cs">
+      <DependentUpon>VentanaAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaAutoridad.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VentanaAutoridad.Designer.cs">
       <DependentUpon>VentanaAutoridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaPadre_Madre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaPadre_Madre.Designer.cs">
+      <DependentUpon>VentanaPadre_Madre.cs</DependentUpon>
     </Compile>
     <Compile Include="VentanaPagarCuota.cs">
       <SubType>Form</SubType>
@@ -182,11 +243,32 @@
     <Compile Include="VentanaPagarCuota.Designer.cs">
       <DependentUpon>VentanaPagarCuota.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerNotaEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerNotaEstudiante.Designer.cs">
+      <DependentUpon>VerNotaEstudiante.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CargarNotaEstudiante.resx">
+      <DependentUpon>CargarNotaEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Docente.resx">
+      <DependentUpon>Docente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HorariosAlumno.resx">
+      <DependentUpon>HorariosAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InscripcionAlumno.resx">
       <DependentUpon>InscripcionAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaDeudasHijos.resx">
+      <DependentUpon>ListaDeudasHijos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HorarioTrabajoDocente.resx">
+      <DependentUpon>HorarioTrabajoDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoAlumnosXCurso.resx">
       <DependentUpon>ListadoAlumnosXCurso.cs</DependentUpon>
@@ -196,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoDeudores.resx">
       <DependentUpon>ListadoDeudores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotasHijos.resx">
+      <DependentUpon>NotasHijos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -215,12 +300,22 @@
     <EmbeddedResource Include="RegistroDocente.resx">
       <DependentUpon>RegistroDocente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VentanaAlumno.resx">
+      <DependentUpon>VentanaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanaAutoridad.resx">
       <DependentUpon>VentanaAutoridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaPadre_Madre.resx">
+      <DependentUpon>VentanaPadre_Madre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaPagarCuota.resx">
       <DependentUpon>VentanaPagarCuota.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VerNotaEstudiante.resx">
+      <DependentUpon>VerNotaEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CentroEducativoApp_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

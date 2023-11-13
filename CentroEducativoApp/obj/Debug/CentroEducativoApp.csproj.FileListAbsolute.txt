@@ -50,3 +50,16 @@ C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\Cent
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.VentanaPagarCuota.resources
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.InscripcionAlumno.resources
 C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.ListadoAlumnosXDocente.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.Docente.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.VentanaAlumno.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.VentanaPadre_Madre.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.ListaDeudasHijos.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.horarioTragajoDocente.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.CargarNotaEstudiante.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.VerNotaEstudiante.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.NotasHijos.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.HorariosAlumno.resources
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\bin\Debug\CentroEducativoApp.exe.manifest
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\bin\Debug\CentroEducativoApp.application
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.exe.manifest
+C:\Users\Guill\source\repos\CentroEducativoApp\CentroEducativoApp\obj\Debug\CentroEducativoApp.application

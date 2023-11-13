@@ -77,7 +77,7 @@
             // 
             // tbBuscarCuotasImpagas
             // 
-            this.tbBuscarCuotasImpagas.Location = new System.Drawing.Point(438, 553);
+            this.tbBuscarCuotasImpagas.Location = new System.Drawing.Point(438, 566);
             this.tbBuscarCuotasImpagas.Name = "tbBuscarCuotasImpagas";
             this.tbBuscarCuotasImpagas.Size = new System.Drawing.Size(100, 20);
             this.tbBuscarCuotasImpagas.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(395, 551);
+            this.label3.Location = new System.Drawing.Point(395, 564);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 22);
             this.label3.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             // btnBuscarCuotas
             // 
-            this.btnBuscarCuotas.Location = new System.Drawing.Point(633, 549);
+            this.btnBuscarCuotas.Location = new System.Drawing.Point(633, 562);
             this.btnBuscarCuotas.Name = "btnBuscarCuotas";
             this.btnBuscarCuotas.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarCuotas.TabIndex = 6;
@@ -115,8 +115,11 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListadoDeudores";
-            this.Text = "ListadoDeudores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado de Deudores";
             this.Load += new System.EventHandler(this.ListadoDeudores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

@@ -149,8 +149,11 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListadoAlumnosXCurso";
-            this.Text = "ListadoAlumnosXCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado de alumnos por Curso";
             this.Load += new System.EventHandler(this.ListadoAlumnosXCurso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

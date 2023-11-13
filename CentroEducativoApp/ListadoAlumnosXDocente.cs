@@ -129,7 +129,7 @@ namespace CentroEducativoApp
 
             //LISTADO DE ALUMNOS X CURSO**********************************************************************
 
-            string query = "SELECT estudiante.nombre Nombre, estudiante.apellido AS Apellido,estudiante.legajo as Legajo,curso.nombreCurso as Materia FROM estudiante JOIN alumnos_cursos ON estudiante.id = alumnos_cursos.alumno_id JOIN Curso ON alumnos_cursos.curso_id = curso.id WHERE curso.profesor_id = '" + idProfesor + "';";
+                string query = "SELECT estudiante.nombre Nombre, estudiante.apellido AS Apellido,estudiante.legajo as Legajo,curso.nombreCurso as Materia FROM estudiante JOIN alumnos_cursos ON estudiante.id = alumnos_cursos.alumno_id JOIN Curso ON alumnos_cursos.curso_id = curso.id WHERE curso.profesor_id = '" + idProfesor + "';";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {

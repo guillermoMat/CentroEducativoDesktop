@@ -33,8 +33,8 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -81,10 +81,6 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -95,14 +91,21 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Ingrese legajo del alumno:";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // InscripcionAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 428);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "InscripcionAlumno";
-            this.Text = "InscripcionAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inscripcion Alumno";
             this.Load += new System.EventHandler(this.InscripcionAlumno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

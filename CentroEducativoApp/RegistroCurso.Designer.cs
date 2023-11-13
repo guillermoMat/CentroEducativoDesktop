@@ -119,8 +119,11 @@
             this.Controls.Add(this.cbProfesor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegistroCurso";
-            this.Text = "RegistroCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro de Materia";
             this.Load += new System.EventHandler(this.RegistroCurso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

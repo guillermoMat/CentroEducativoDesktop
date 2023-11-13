@@ -17,7 +17,7 @@ namespace CentroEducativoApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            Application.Run(new VentanaAutoridad());
+            Application.Run(new Form1());
         }
     }
 }

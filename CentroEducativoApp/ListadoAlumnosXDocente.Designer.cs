@@ -107,7 +107,10 @@
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.dataGridView1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListadoAlumnosXDocente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Alumnos por Docente";
             this.Load += new System.EventHandler(this.ListadoAlumnosXDocente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
